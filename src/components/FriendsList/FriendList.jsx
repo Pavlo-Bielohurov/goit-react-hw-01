@@ -1,15 +1,13 @@
-import PropTypes from "prop-types";
-import clsx from "clsx";
 import css from "./FriendList.module.css";
 
 import FriendListItem from "../FriendListItem/FriendListItem";
 
 export default function FriendList({ friends }) {
   return (
-    <ul className={clsx(css.friendsWraper)}>
+    <ul className={css.friendsWraper}>
       {friends.map((friend) => {
         return (
-          <li key={friend.id} className={clsx(css.friendsItem)}>
+          <li key={friend.id} className={css.friendsItem}>
             <FriendListItem
               avatar={friend.avatar}
               name={friend.name}
@@ -21,14 +19,3 @@ export default function FriendList({ friends }) {
     </ul>
   );
 }
-
-FriendList.propTypes = {
-  friends: PropTypes.arrayOf(
-    PropTypes.shape({
-      avatar: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      isOnline: PropTypes.bool.isRequired,
-      id: PropTypes.number.isRequired,
-    })
-  ).isRequired,
-};
